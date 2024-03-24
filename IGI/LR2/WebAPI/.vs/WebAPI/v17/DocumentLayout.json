@@ -1,0 +1,134 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Nikita\\source\\repos\\253503_STUDENICHNIK_22\\IGI\\LR2\\WebAPI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{67EB6746-8842-4EB2-9292-AA404B3C72A1}|WebAPI.csproj|c:\\users\\nikita\\source\\repos\\253503_studenichnik_22\\igi\\lr2\\webapi\\infrastructure\\usersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67EB6746-8842-4EB2-9292-AA404B3C72A1}|WebAPI.csproj|solutionrelative:infrastructure\\usersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67EB6746-8842-4EB2-9292-AA404B3C72A1}|WebAPI.csproj|c:\\users\\nikita\\source\\repos\\253503_studenichnik_22\\igi\\lr2\\webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67EB6746-8842-4EB2-9292-AA404B3C72A1}|WebAPI.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67EB6746-8842-4EB2-9292-AA404B3C72A1}|WebAPI.csproj|c:\\users\\nikita\\source\\repos\\253503_studenichnik_22\\igi\\lr2\\webapi\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{67EB6746-8842-4EB2-9292-AA404B3C72A1}|WebAPI.csproj|solutionrelative:dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67EB6746-8842-4EB2-9292-AA404B3C72A1}|WebAPI.csproj|c:\\users\\nikita\\source\\repos\\253503_studenichnik_22\\igi\\lr2\\webapi\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67EB6746-8842-4EB2-9292-AA404B3C72A1}|WebAPI.csproj|solutionrelative:controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67EB6746-8842-4EB2-9292-AA404B3C72A1}|WebAPI.csproj|c:\\users\\nikita\\source\\repos\\253503_studenichnik_22\\igi\\lr2\\webapi\\infrastructure\\iusersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67EB6746-8842-4EB2-9292-AA404B3C72A1}|WebAPI.csproj|solutionrelative:infrastructure\\iusersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67EB6746-8842-4EB2-9292-AA404B3C72A1}|WebAPI.csproj|c:\\users\\nikita\\source\\repos\\253503_studenichnik_22\\igi\\lr2\\webapi\\apimodels\\userapimodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67EB6746-8842-4EB2-9292-AA404B3C72A1}|WebAPI.csproj|solutionrelative:apimodels\\userapimodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67EB6746-8842-4EB2-9292-AA404B3C72A1}|WebAPI.csproj|c:\\users\\nikita\\source\\repos\\253503_studenichnik_22\\igi\\lr2\\webapi\\infrastructure\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67EB6746-8842-4EB2-9292-AA404B3C72A1}|WebAPI.csproj|solutionrelative:infrastructure\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 298,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Dockerfile",
+              "DocumentMoniker": "C:\\Users\\Nikita\\source\\repos\\253503_STUDENICHNIK_22\\IGI\\LR2\\WebAPI\\Dockerfile",
+              "RelativeDocumentMoniker": "Dockerfile",
+              "ToolTip": "C:\\Users\\Nikita\\source\\repos\\253503_STUDENICHNIK_22\\IGI\\LR2\\WebAPI\\Dockerfile",
+              "RelativeToolTip": "Dockerfile",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-03-10T16:08:17.124Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UsersRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Nikita\\source\\repos\\253503_STUDENICHNIK_22\\IGI\\LR2\\WebAPI\\Infrastructure\\UsersRepository.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\UsersRepository.cs",
+              "ToolTip": "C:\\Users\\Nikita\\source\\repos\\253503_STUDENICHNIK_22\\IGI\\LR2\\WebAPI\\Infrastructure\\UsersRepository.cs",
+              "RelativeToolTip": "Infrastructure\\UsersRepository.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAuwA4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-10T15:57:08.135Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UserApiModel.cs",
+              "DocumentMoniker": "C:\\Users\\Nikita\\source\\repos\\253503_STUDENICHNIK_22\\IGI\\LR2\\WebAPI\\ApiModels\\UserApiModel.cs",
+              "RelativeDocumentMoniker": "ApiModels\\UserApiModel.cs",
+              "ToolTip": "C:\\Users\\Nikita\\source\\repos\\253503_STUDENICHNIK_22\\IGI\\LR2\\WebAPI\\ApiModels\\UserApiModel.cs",
+              "RelativeToolTip": "ApiModels\\UserApiModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-10T15:49:06.299Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\Nikita\\source\\repos\\253503_STUDENICHNIK_22\\IGI\\LR2\\WebAPI\\Infrastructure\\User.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\User.cs",
+              "ToolTip": "C:\\Users\\Nikita\\source\\repos\\253503_STUDENICHNIK_22\\IGI\\LR2\\WebAPI\\Infrastructure\\User.cs",
+              "RelativeToolTip": "Infrastructure\\User.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-10T15:47:08.561Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IUsersRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Nikita\\source\\repos\\253503_STUDENICHNIK_22\\IGI\\LR2\\WebAPI\\Infrastructure\\IUsersRepository.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\IUsersRepository.cs",
+              "ToolTip": "C:\\Users\\Nikita\\source\\repos\\253503_STUDENICHNIK_22\\IGI\\LR2\\WebAPI\\Infrastructure\\IUsersRepository.cs",
+              "RelativeToolTip": "Infrastructure\\IUsersRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAuwAYAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-10T15:45:59.722Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "C:\\Users\\Nikita\\source\\repos\\253503_STUDENICHNIK_22\\IGI\\LR2\\WebAPI\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UsersController.cs",
+              "ToolTip": "C:\\Users\\Nikita\\source\\repos\\253503_STUDENICHNIK_22\\IGI\\LR2\\WebAPI\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "Controllers\\UsersController.cs",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAAAC8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-10T15:45:20.893Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Nikita\\source\\repos\\253503_STUDENICHNIK_22\\IGI\\LR2\\WebAPI\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Nikita\\source\\repos\\253503_STUDENICHNIK_22\\IGI\\LR2\\WebAPI\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAAwB0AAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-10T15:44:25.692Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

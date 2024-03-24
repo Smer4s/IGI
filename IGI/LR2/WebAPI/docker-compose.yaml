@@ -1,0 +1,51 @@
+version: '3.9'
+name: users-api
+  
+services:
+    api:
+       container_name: users-api
+       image: smer4/users-api-api
+       environment: 
+         - ASPNETCORE_URLS=http://+:5000
+         - connectionString=mongodb://root:example@api-db:27017/ 
+       ports:
+        - 5001:5000
+       depends_on: 
+         - api-db
+       networks:
+         - api-db-network
+      
+    api-db:
+        container_name: users-api-dbz
+        image: mongo
+        restart: always
+        volumes:
+            - dbdata:/data/db
+        ports:
+            - 27017:27017
+        environment:
+          MONGO_INITDB_ROOT_USERNAME: root
+          MONGO_INITDB_ROOT_PASSWORD: example
+        networks:
+          - api-db-network
+          
+    api-db-explorer:
+        container_name: users-api-db-explorer
+        image: mongo-express
+        restart: always
+        depends_on: 
+          - api-db
+        ports:
+            - 8081:8081
+        environment:
+            ME_CONFIG_BASICAUTH_USERNAME: admin
+            ME_CONFIG_BASICAUTH_PASSWORD: admin
+            ME_CONFIG_MONGODB_URL: mongodb://root:example@api-db:27017/ 
+        networks:
+          - api-db-network
+    
+volumes:
+    dbdata:
+      
+networks:
+    api-db-network:
