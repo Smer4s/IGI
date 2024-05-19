@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Расписание</title>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td>Врач</td>
+            <td>Комната</td>
+            <td>Время начала приёма</td>
+            <td>Время конца приёма</td>
+            <td>День</td>
+        </tr>
+
+        {% for schedule in schedules %}
+        <tr>
+            <td> {{schedule.doctor.name}} </td>
+            <td> {{schedule.room.number}} </td>
+            <td> {{schedule.start_time}} </td>
+            <td> {{schedule.end_time}} </td>
+            <td> {{schedule.day}} </td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+</body>
+
+</html>

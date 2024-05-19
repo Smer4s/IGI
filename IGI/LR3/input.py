@@ -38,22 +38,16 @@ def printList(arr: list):
     for i in arr:
         print(i)
 
-def inputListWhile(delimeter:int=12):
-    """This function inputs a list until a delimeter is provided"""
-    arr = []
-    while True:
-        number = inputFloat()
-        if number == delimeter:
-            break
-        arr.append(number)
-        
-    return arr
-
+def inputListWhile(delimeter: int = 12):
+    """This function generates input elements until a delimeter is provided"""
+    return iter(lambda: inputFloat(), delimeter)    
+    
+import random
 
 def generateList(size: int):
     """This function generates a list of float numbers"""
-    arr = []
-    for i in range(size):
-        arr.append(i + 1 + i/2)
-        
-    return arr
+    return [random.uniform(-100.0,100.0) for _ in range(size)]
+ 
+       
+    
+ 

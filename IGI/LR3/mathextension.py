@@ -48,8 +48,9 @@ def findMaxInList(arr: list):
         if val > maximum:
             maximum = val
             index = i
-            
+           
     return (maximum, index)
+
 
 def productBeforeMaximum(arr: list):
     maximumIndex = findMaxInList(arr)[1]

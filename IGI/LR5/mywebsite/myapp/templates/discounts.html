@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Скидки и купоны</title>
+</head>
+<body>
+    <h1>Скидки и купоны:</h1>
+    <ul>
+        {% for discount in discounts %}
+        <li>
+            Код: {{discount.code}} <br/>
+            Процент скидки: {{discount.value}}% <br/>
+
+            {% if discount.is_active %}
+            Активен
+            {% else %}
+            В архиве
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

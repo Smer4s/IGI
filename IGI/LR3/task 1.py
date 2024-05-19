@@ -1,9 +1,4 @@
-# LR 3, Task 1, Studenichnik Nikita Igorevich 253503.
-# This program calculates arcsin(x) for epsilon
-# 24.03.2024
-
 from math import fabs
-
 from repeated import repeatedTask
 from input import inputFloat
 from mathextension import arcsin

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет врача</title>
+</head>
+<header>
+    <a href="/myapp/">На главную</a>
+    <form method="post" action="logout/">
+        {% csrf_token %}
+        <button type="submit">Выйти</button>
+    </form>
+    <br/>
+    <a href="/myapp/schedule">Посмотреть расписание</a> |
+    <a href="/myapp/visits">Посмотреть записи клиентов</a> |
+    <a href="/myapp/services">Посмотреть процедуры</a>
+</header>
+
+<body>
+    <h1>Личный кабинет врача</h1>
+    <h3> Ваш логин: {{ user.get_username }}</h3>
+    <h3> Ваш email: {{ user.email }}</h3>
+</body>
+
+</html>

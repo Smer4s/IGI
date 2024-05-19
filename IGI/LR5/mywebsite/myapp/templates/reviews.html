@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отзывы</title>
+</head>
+<body>
+    <h1>Отзывы:</h1>
+    <ul>
+        {% for review in reviews %}
+        <li>
+            {{review.issuer_name}}:<br/>
+            {{review.review_date}}<br/>
+            {{review.text}}<br/>
+            {{review.mark}}<br/>
+        </li>
+        {% endfor %}
+    </ul>
+
+   <h2> Оставить отзыв: </h2>
+
+    {% if user.is_authenticated %}
+    
+    <form method="post" action="add/">
+        {% csrf_token %}
+        Текст:
+        <input type="text" name="text" required> <br/>
+        Оценка:
+        <input type="number" name="mark" required max="10" min="1"><br/>
+        <button type="submit">Оставить отзыв</button>
+    </form>
+
+    {% else %}
+
+    Отзывы доступны только зарегистрированым пользователям.
+    <a href="/myapp/register">Регистрация</a>
+
+    {% endif %}
+</body>
+</html>

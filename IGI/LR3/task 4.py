@@ -1,10 +1,3 @@
-# LR 3, Task 4, Studenichnik Nikita Igorevich 253503.
-# This program analyzes text and 
-# 1) return number of lowercase letters
-# 2) returns last word that contains letter 'i' and its index
-# 3) returns string without words that begins with 'i'
-# 24.03.2024
-
 from stringextension import *
 
 if __name__ == "__main__":

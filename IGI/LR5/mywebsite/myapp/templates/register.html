@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+</head>
+
+<body>
+    <h1>Регистрация: </h1>
+    <form method="post" action="registeruser/">
+        {% csrf_token %}
+        Login:
+        <input type="text" name="login"><br />
+        Password:
+        <input type="password" name="password"><br />
+        Email:
+        <input type="email" name="email"><br/>
+        Врач
+        <input type="radio" name="role" value="Doctor"><br/>
+        Клиент
+        <input type="radio" name="role" checked value="Client"><br/>
+        <input type="submit" value="Зарегистрироваться">
+    </form>
+
+    <p>Уже есть аккаунт?
+        <a href="/myapp/login/">Войти</a>
+    </p>
+</body>
+
+</html>

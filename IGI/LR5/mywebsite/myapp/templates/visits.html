@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запланированные визиты:</title>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td>Врач</td>
+            <td>Клиент</td>
+            <td>День</td>
+            <td>Время</td>
+        </tr>
+
+        {% for visit in visits %}
+        <tr>
+            <td>{{visit.doctor.name}}</td>
+            <td>{{visit.client.name}}</td>
+            <td>{{visit.visit_date}}</td>
+            <td>{{visit.schedule.start_time}}</td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+</body>
+
+</html>

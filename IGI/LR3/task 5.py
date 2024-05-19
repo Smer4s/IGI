@@ -1,12 +1,3 @@
-# LR 3, Task 5, Studenichnik Nikita Igorevich 253503.
-# This program works with a list of float numbers and has this functionality
-# 1) Input a list
-# 2) Checks for input errors
-# 3) Returns count of elements of list, that are greater then number C (C is input number)
-# 4) Returns product of elements of list, that located up to the maximum element
-# 5) Prints list to screen
-# 24.03.2024
-
 from repeated import repeatedTask
 from mathextension import *
 from input import *

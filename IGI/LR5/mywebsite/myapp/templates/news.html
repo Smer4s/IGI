@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новости</title>
+</head>
+
+<body>
+    <h1>Последние Новости:</h1>
+    <ul>
+        {% for article in news %}
+        <li>
+            {{article.title}}<br/>
+            <img src={{article.image_url}} width="10%" height="10%"/> <br/>
+            {{article.text}}
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>

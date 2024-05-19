@@ -1,0 +1,24 @@
+Changed Text: This is a sample text for testing purposes.
+It contains sentences of various types, such as declarative sentences, interrogative sentences, and imperative sentences.
+Additionally, it includes smileys like :-) and ;-), as well as words with uppercase letters and digits like Apple123 and TestWORD456.
+
+The quick brown fox jumps over the lazy dog. Is this a question? Yes, it is. Please answer. Thank you!
+
+This text also contains emails like: studnikita@gmail.com, kamushkin@mail.ru.
+And a weirdostring like  123$v_(ac)$bfv[3].
+
+How many sentences are in this text? I wonder. Let's count them.
+
+This is the end of the ;---------[[[[[[[[ sample text. Have a nice day! WORD!
+
+Words after comma: ['and', 'as', 'interrogative', 'it', 'it', 'kamushkin', 'such']
+Repeating Characters: {'T': 6, 'h': 14, 'i': 42, 's': 51, 'a': 37, 'm': 12, 'p': 11, 'l': 21, 'e': 62, 't': 43, 'x': 5, 'f': 5, 'o': 22, 'r': 18, 'n': 36, 'g': 6, 'u': 13, 'I': 3, 'c': 16, 'v': 8, 'y': 7, 'd': 17, 'A': 3, 'k': 9, 'w': 8, 'W': 2, 'O': 2, 'R': 2, 'D': 2, 'q': 2, 'b': 2, 'j': 1, 'z': 1, 'Y': 1, 'P': 1, 'H': 2, 'L': 1}
+Vowel Words: 30
+Emails: ['studnikita@gmail.com', 'kamushkin@mail.ru']
+Names: ['studnikita', 'kamushkin']
+Narrative Sentences: 13
+Smileys Count: 3
+Sentence Count: 18
+Interrogative Sentences: 2
+Imperative Sentences: 3
+Average Sentence Length: 36.44444444444444
