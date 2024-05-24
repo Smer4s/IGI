@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>F.A.Q.</title>
-</head>
+{% block content %}
 
-<body>
+<div>
     <h1>Ответы на часто задаваемые вопросы: </h1>
     <ul>
         {% for question in questions %}
@@ -24,4 +19,4 @@
     </ul>
 </body>
 
-</html>
+{% endblock %}

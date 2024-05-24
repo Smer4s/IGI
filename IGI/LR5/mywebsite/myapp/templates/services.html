@@ -1,0 +1,36 @@
+{% extends 'base_doctor.html' %}
+
+{% block content %}
+<div>
+    <table>
+        <tr>
+            <td>Название процедуры</td>
+            <td>Стоимость</td>
+        </tr>
+
+        {% for service in services %}
+        <tr>
+            <td> {{service.name}} </td>
+            <td> {{service.price}} </td>
+            <td><a href="edit/{{service.id}}">Изменить</a> | <a href="delete/{{service.id}}">Удалить</a></td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    <br/>
+    <br/>
+    
+    Создать процедуру
+    <form method="post" action="create/">
+        {% csrf_token %}
+        Название услуги
+        <input type="text" name='name'required minlength="5"> <br/>
+        Стоимость услуги
+        <input type="number" name='price' required min="1" max="10000"> <br/>
+        <button type="submit">Создать</button>
+    </form>
+</div>
+
+{% endblock %}

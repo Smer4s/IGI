@@ -1,27 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base_doctor.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Личный кабинет врача</title>
-</head>
-<header>
-    <a href="/myapp/">На главную</a>
-    <form method="post" action="logout/">
-        {% csrf_token %}
-        <button type="submit">Выйти</button>
-    </form>
-    <br/>
-    <a href="/myapp/schedule">Посмотреть расписание</a> |
-    <a href="/myapp/visits">Посмотреть записи клиентов</a> |
-    <a href="/myapp/services">Посмотреть процедуры</a>
-</header>
-
-<body>
+{% block content %}
+<div>
     <h1>Личный кабинет врача</h1>
     <h3> Ваш логин: {{ user.get_username }}</h3>
     <h3> Ваш email: {{ user.email }}</h3>
-</body>
 
-</html>
+
+    {% if is_doctor is None %}
+    Ваши данные
+    <form method="post" action="addcontact/">
+        {% csrf_token %}
+        Имя:
+        <input type="text" name="name"><br/>
+        Телефон:
+        <input type="tel" name="telephone"><br/>
+        Специализация:
+        <select name="work-type">
+            {% for specialization in categories %}
+            <option value={{specialization.name}}>{{specialization.name}}</option>
+            {% endfor %}
+        </select><br/>
+
+        <button type="submit">Заполнить форму врача</button>
+    </form>
+
+    {% endif %}
+</div>
+
+{% endblock %}

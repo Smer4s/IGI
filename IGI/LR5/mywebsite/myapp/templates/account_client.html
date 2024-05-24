@@ -1,11 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Личный кабинет клиента</title>
-</head>
-<body>
-    {{ user.group }}
-</body>
-</html>
+{% extends 'base_client.html' %}
+
+{% block content %}
+
+<div>
+    <h1>Личный кабинет клиента</h1>
+    <h3> Ваш логин: {{ user.get_username }}</h3>
+    <h3> Ваш email: {{ user.email }}</h3>
+
+</div>
+
+{% endblock %}

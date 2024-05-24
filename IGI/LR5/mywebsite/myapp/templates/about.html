@@ -1,12 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>О компании</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
     <h1>Медицинский косметологический центр "{{name}}"</h1>
     <h2>{{about}}</h2>
-</body>
-</html>
+</div>
+
+{% endblock %}

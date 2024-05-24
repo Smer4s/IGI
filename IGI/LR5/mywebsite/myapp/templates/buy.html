@@ -1,0 +1,30 @@
+{% extends 'base_client.html' %}
+
+{% block content %}
+<div>
+    Список услуг:
+
+    <form method="post" action="services/">
+        {% csrf_token %}
+
+        {% for service in services %}
+        <input type="checkbox" name="service_name" value="{{service.name}}"> {{service.name}} {{service.price}} <br />
+        {% endfor %}
+        <br/>
+        Выберите промокод:
+        <select name="promo_code">
+            {% for code in codes %}
+            {% if code.is_active %}
+                <option value={{code.code}}>{{code.code}} {{code.value}}%</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+        <br />
+        <br />
+
+        <button type="submit">Купить услуги</button>
+    </form>
+
+</div>
+
+{% endblock %}

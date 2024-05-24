@@ -51,7 +51,6 @@ class About(models.Model):
     companyname = models.CharField(max_length=30)
     about_text=models.CharField(max_length=300)
     
-
 class Category(models.Model):
     name = models.CharField(max_length=50)
     
@@ -70,6 +69,12 @@ class Service(models.Model):
     name = models.CharField(max_length=100)
     price = models.DecimalField(max_digits=8, decimal_places=2)
     clients = models.ManyToManyField(Client, through='Sale')
+
+class Cart(models.Model):
+    client = models.ForeignKey(Client, on_delete=models.CASCADE)
+    services = models.ManyToManyField(Service)
+    total_cost = models.DecimalField(max_digits=10, decimal_places=2)
+    promo_code = models.ForeignKey(Discount, on_delete=models.CASCADE)
 
 class Sale(models.Model):
     client = models.ForeignKey(Client, on_delete=models.CASCADE)

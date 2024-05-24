@@ -1,0 +1,30 @@
+{% extends 'base_doctor.html' %}
+
+{% block content %}
+
+<div>
+    <table>
+        <tr>
+            <td>Клиент</td>
+            <td>Название услуги</td>
+            <td>Стоимость услуги</td>
+            <td>Дата</td>
+        </tr>
+
+        {% for sale in sales %}
+        <tr>
+            <td> {{sale.client.name}} </td>
+            <td> {{sale.service.name}} </td>
+            <td> {{sale.service.price}} </td>
+            <td> {{sale.date}}</td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    <br/>
+    Итоговая сумма: {{sum}}
+</div>
+
+{% endblock %}

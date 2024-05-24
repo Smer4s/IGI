@@ -1,24 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Главная</title>
-</head>
-
-<header>
-    <a href="about/">О Компании</a>
-    <a href="news/">Новости</a>
-    <a href="faq/">F.A.Q.</a>
-    <a href="contacts/">Контакты</a>
-    <a href="confidential/">Политика конфиденциальности</a>
-    <a href="employees/">Вакансии</a>
-    <a href="reviews/">Отзывы</a>
-    <a href="discounts/">Скидки</a>
-</header>
-
-<body>
+{% block content %}
+<div>
     <h1>Главная</h1>
 
     {% if user.is_authenticated %}
@@ -28,8 +11,14 @@
     {% else %}
 
     <a href="login/">Войти в личный кабинет</a>
-    
-    {% endif %}
-</body>
 
-</html>
+    {% endif %}
+
+    <br />
+    <br /> 
+    <br />
+    {{article.title}}<br />
+    <img src={{article.image_url}} width="10%" height="10%" /> <br />
+</div>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<body>
+    <h3>Общая сумма продаж: {{total}}</h3>
+    <h3>Средняя сумма продаж: {{average}}</h3>
+    <h3>Медиана продаж: {{median}}</h3>
+    <h2>Весь список клиентов:</h2>
+    <table>
+        <tr>
+            <td>Имя клиента</td>
+            <td>Email клиента</td>
+        </tr>
+        {% for client in clients %}
+
+        <tr>
+            <td>{{client.name}}</td>
+            <td>{{client.email}}</td>
+        </tr>
+
+        {% endfor %}
+    </table>
+
+    <img src="{% static filename %}"/>
+     
+</div>
+
+{% endblock %}

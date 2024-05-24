@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmetal</title>
+</head>
+
+<header>
+    <a href="/myapp/">Главная</a>
+    <a href="/myapp/about/">О Компании</a>
+    <a href="/myapp/news/">Новости</a>
+    <a href="/myapp/faq/">F.A.Q.</a>
+    <a href="/myapp/contacts/">Контакты</a>
+    <a href="/myapp/confidential/">Политика конфиденциальности</a>
+    <a href="/myapp/employees/">Вакансии</a>
+    <a href="/myapp/reviews/">Отзывы</a>
+    <a href="/myapp/discounts/">Скидки</a>
+
+    {% if user.is_authenticated %}
+
+    <a href="/myapp/statistics/">Посмотреть статистические данные</a>
+    
+    {% endif %}
+</header>
+
+<body>
+    {% block content %}
+    {% endblock %}
+</body>
+
+</html>
