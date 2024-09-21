@@ -286,7 +286,10 @@ def statspage(request:HttpRequest):
     plt.title('Prices per Service')
     plt.legend()
     
-    graph_url = os.path.join(settings.STATIC_ROOT, 'graph.png' )
+    filename = 'graph.png'
+    
+    graph_url = os.path.join(settings.BASE_DIR, 'static', filename)
+   
     plt.savefig(graph_url)
     
     clients = Client.objects.all().order_by('name')
@@ -296,7 +299,7 @@ def statspage(request:HttpRequest):
         'average': average_cost,
         'median': median_cost,
         'clients': clients,
-        'filename': 'graph.png'
+        'filename': filename
     }
     
     return render(request, 'stats.html', data)
