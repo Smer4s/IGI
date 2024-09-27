@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пример HTML Страницы</title>
+</head>
+
+<body>
+    <!-- Листинг кода -->
+    <h2>Листинг кода</h2>
+    <pre>
+    function helloWorld() {
+        console.log('Hello, world!');
+    }
+    </pre>
+
+    <!-- Сокращения -->
+    <h2>Сокращения</h2>
+    <p><abbr title="HyperText Markup Language">HTML</abbr> — это язык разметки для создания веб-страниц.</p>
+
+    <!-- Определения -->
+    <h2>Определения</h2>
+    <p><dfn>Кроссбраузерность</dfn> — это свойство веб-приложения корректно работать в различных браузерах.</p>
+
+    <!-- Цитаты -->
+    <h2>Цитаты</h2>
+    <q cite="http://en.wikipedia.org/wiki/Apple">
+        Программирование — это искусство, требующее навыка, терпения и практики.
+    </q>
+
+    <!-- Дата и время -->
+    <h2>Дата и время</h2>
+    <p>Сегодня: <time datetime="2023-10-03"> 3 октября 2023 года</time></p>
+    <p>Время: <time datetime="15:00">15 часов</time></p>
+
+    <!-- Четверостишие -->
+    <h2>Четверостишие</h2>
+    <pre>
+        Тень деревьев в лунном свете,<br />
+        Светит звезда<wbr/> – она не спит,  
+        Все мечты<wbr/> за заставою,  
+        Ветер шепчет: <wbr/>«Скоро, жди».
+    </pre>
+
+    <!-- Ссылки -->
+    <h2>Ссылки</h2>
+    <p><a href="https://www.example.com" target="_blank">Перейти на Example.com</a></p>
+    <p><a href="document.pdf" download>Скачать документ</a></p>
+
+    <!-- Якоря -->
+    <h2>Якоря</h2>
+    <p>Перейти к <a href="#section1">разделу 1</a> или <a href="#section2">разделу 2</a>.</p>
+
+    <div id="section1">
+        <h3>Раздел 1</h3>
+        <p>Это первый раздел. Здесь можно писать текст.</p>
+    </div>
+
+    <div id="section2">
+        <h3>Раздел 2</h3>
+        <p>Это второй раздел. Тоже супер интересный!</p>
+    </div>
+
+    <!-- Контейнерные элементы -->
+    <h2>Контейнерные элементы</h2>
+    <div>
+        <h3>Контейнер div</h3>
+    </div>
+
+    <p>
+    <h3>Контейнер p</h3>
+    </p>
+
+    <b>Контейнер blockquote</b>
+    <blockquote>
+        <p>«Контейнер — blockquote.»</p>
+        <footer>— Автор</footer>
+    </blockquote>
+
+    <b>Горизонтальная линия:</b>
+    <hr>
+
+    <h2>Нумерованный список (ol)</h2>
+    <ol>
+        <li>Первый элемент</li>
+        <li>Второй элемент</li>
+        <li>Третий элемент</li>
+    </ol>
+
+    <h2>Маркированный список (ul)</h2>
+    <ul>
+        <li>Элемент с маркером 1</li>
+        <li>Элемент с маркером 2</li>
+        <li>Элемент с маркером 3</li>
+    </ul>
+
+    <h2>Список определений (dl)</h2>
+    <dl>
+        <dt>HTML</dt>
+        <dd>Язык разметки гипертекста, используемый для создания веб-страниц.</dd>
+        <dt>CSS</dt>
+        <dd>Каскадные таблицы стилей для оформления веб-страниц.</dd>
+        <dt>JavaScript</dt>
+        <dd>Язык программирования, который позволяет добавлять интерактивность на веб-страницы.</dd>
+    </dl>
+
+    <h2>Фигура (figure)</h2>
+    <figure>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1qJBOIxR4pZ_9nzFq591fcu-Eal1MdkoRlw&s"
+            alt="Пример изображения">
+        <figcaption>Это пример изображения с подписью.</figcaption>
+    </figure>
+
+
+    <b>Навигация Горизонтальная</b>
+    <nav>
+        <a href="#home">Главная</a>|<a href="#about">О нас</a>
+        |<a href="#services">Услуги</a>|<a href="#contact">Контакты</a>
+    </nav>
+
+    <b>Навигация Вертикальная</b>
+    <aside>
+        <ul>
+            <li><a href="#home">Главная</a></li>
+            <li><a href="#about">О нас</a></li>
+            <li><a href="#services">Услуги</a></li>
+            <li><a href="#contact">Контакты</a></li>
+        </ul>
+    </aside>
+
+    <h2>Таблица с данными</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th id="header1">Продукт</th>
+                <th id="header2" colspan="2">Цены</th>
+            </tr>
+            <tr>
+                <th id="header3">Наименование</th>
+                <th id="header4">Цена</th>
+                <th id="header5">Количество</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td headers="header3">Яблоки</td>
+                <td headers="header4">100</td>
+                <td headers="header5">5 кг</td>
+            </tr>
+            <tr>
+                <td headers="header3">Апельсины</td>
+                <td headers="header4">150</td>
+                <td headers="header5">3 кг</td>
+            </tr>
+            <tr>
+                <td headers="header3">Груши</td>
+                <td headers="header4">200</td>
+                <td headers="header5">2 кг</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br />
+    <br />
+
+    <b>Форма</b>
+
+    <form action="#" method="POST">
+
+        <fieldset>
+            <legend>Личные данные</legend>
+
+            <label for="name">Имя:</label>
+            <input type="text" id="name" name="name" required placeholder="Введите ваше имя">
+
+            <label for="email">Электронная почта:</label>
+            <input type="email" id="email" name="email" required placeholder="Введите вашу почту">
+
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" name="password" required minlength="6"
+                placeholder="Минимум 6 символов">
+
+            <label for="dob">Дата рождения:</label>
+            <input type="date" id="dob" name="dob" required>
+
+            <label for="gender">Пол:</label>
+            <select id="gender" name="gender" required>
+                <option value="">Выберите пол</option>
+                <option value="male">Мужской</option>
+                <option value="female">Женский</option>
+                <option value="other">Другой</option>
+            </select>
+        </fieldset>
+
+        <fieldset>
+            <legend>Контактная информация</legend>
+
+            <label for="phone">Телефон:</label>
+            <input type="tel" id="phone" name="phone" required placeholder="Введите номер телефона"
+                pattern="^\+?[0-9\s-]*$">
+
+            <label for="address">Адрес:</label>
+            <textarea id="address" name="address" rows="4" placeholder="Введите ваш адрес"></textarea>
+        </fieldset>
+
+        <fieldset>
+            <legend>Дополнительные настройки</legend>
+            <label for="preferences">Предпочтения:</label>
+            <select id="preferences" name="preferences">
+                <option value="option1">Выбор 1</option>
+                <option value="option2">Выбор 2</option>
+                <option value="option3">Выбор 3</option>
+            </select>
+        </fieldset>
+
+        <fieldset>
+            <legend>Отправка данных</legend>
+            <label>
+                <input type="checkbox" name="newsletter" value="subscribe"> Подписаться на рассылку
+            </label>
+            <br>
+            <button type="submit">Отправить</button>
+        </fieldset>
+    </form>
+
+    <h2>Встраиваемое видео (YouTube)</h2>
+    <iframe width="880" height="500" src="https://www.youtube.com/embed/oUiJ_Gk_RWY">
+        
+    </iframe>
+
+    <h2>Адаптивные изображения</h2>
+    <img src="https://via.placeholder.com/300" sizes="(max-width: 40%) 100vw, 50vw" srcset="https://via.placeholder.com/300 300w,
+    https://via.placeholder.com/600 600w,
+    https://via.placeholder.com/900 900w" alt="Пример изображения">
+
+    <h2>Встраиваемое видео (локальный файл)</h2>
+    <video controls src="/static/drum_cover.mp4" type="video/mp4" muted autoplay>
+    </video>
+
+    <h2>Аудио воспроизведение</h2>
+    <audio controls src="/static/music.mp3">
+    </audio>
+
+    <div itemscope itemtype="http://schema.org/Book">
+        <h1 itemprop="name">Война и мир</h1>
+        <p itemprop="author">Лев Толстой</p>
+        <p itemprop="datePublished" content="1869-01-01">Опубликовано: 1869</p>
+        <p itemprop="genre">Исторический роман</p>
+        <p itemprop="description">Эпопея о судьбах нескольких семей на фоне Наполеоновских войн.</p>
+    </div>
+
+</body>

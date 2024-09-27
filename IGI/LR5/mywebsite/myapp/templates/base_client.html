@@ -8,14 +8,14 @@
 </head>
 <header>
     <a href="/myapp/">На главную</a>
-    <form method="post" action="logout/">
+    <form method="post" action="/myapp/account/logout/">
         {% csrf_token %}
         <button type="submit">Выйти</button>
     </form>
     <br />
     <a href="/myapp/account">Личный кабинет</a> | 
     <a href="/myapp/buy">Купить услугу</a> | 
-    <a href="/myapp/sales">Покупки</a>
+    <a href="/myapp/sales">Корзина</a>
 </header>
 
 

@@ -1,6 +1,7 @@
 import os
 
 from typing import Any
+from decimal import Decimal
 import logging
 import numpy as np
 import matplotlib.pyplot as plt
@@ -18,18 +19,34 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.conf import settings
 from .models import (About, Question, Article, 
 Contact, Employee, Discount, Review, Schedule, 
-Client, PlannedVisit, Category, Service, Sale, Cart)
+Client, PlannedVisit, Category, Service, Sale, Cart,
+Partner)
 
 # Create your views here.
+def allpage(request):
+    return render(request, 'all_tags.html')
+
 def mainpage(request):
     article = Article.objects.first()
     
-    data = {'user':request.user, 'article':article}
+    services = Service.objects.all()
+    partners = Partner.objects.all()
+    
+    ad_pictures = [os.path.join('company', 'ads', f) for f in os.listdir(os.path.join(settings.BASE_DIR,'static','company','ads'))]
+    
+    data = {
+        'user': request.user, 
+        'article': article,
+        'ads': ad_pictures,
+        'services':services,
+        'partners':partners,
+    }
     return render(request, 'index.html', data)
 
 def aboutpage(request):
     about = About.objects.first()
-    data = {'name':about.companyname, 'about':about.about_text}
+    data = {'about':about }
+    about.about_text
     return render(request, 'about.html', data)
 
 def faqpage(request):
@@ -41,6 +58,11 @@ def newspage(request):
     news = Article.objects.all()
     data = {'news':news}
     return render(request, 'news.html', data)
+
+def newpage(request:HttpRequest, id:int):
+    new = Article.objects.get(id=id)
+    data = {'new':new}
+    return render(request, 'new.html', data)
 
 def contactpage(request):
     contacts = Contact.objects.all()
@@ -94,7 +116,7 @@ def login_action(request):
     logging.info('user authenthicated: ' + username)
     if user is not None:
         login(request, user)
-        return redirect('/myapp')
+        return redirect('/myapp/account')
     else:
         messages.error(request, 
 'Неверный логин или пароль. Пожалуйста, попробуйте снова.')
@@ -117,11 +139,10 @@ def register_action(request:HttpRequest):
     
     logging.info('user registered: ' + username)
     
-    return redirect('/myapp')
+    return redirect('/myapp/account')
 
 @login_required(redirect_field_name='/myapp/')
 def accountpage(request):
-    
     user_group = request.user.groups.get()
 
     data = {'user': request.user, 'categories' : Category.objects.all()}
@@ -181,10 +202,38 @@ def addservice(request:HttpRequest):
         service.save()
         
     return redirect('/myapp/services')
+
+def view_service(request:HttpRequest, id:int):
+    service = Service.objects.get(id=id)
+    
+    data = {
+        'service' : service
+    }
+    
+    return render(request, 'service.html', data)
+
+@login_required
+def add_to_cart(request:HttpRequest):
+    if request.method == 'POST':
+        id = request.POST['service-id']
+        service = Service.objects.filter(id=id).first()
+        client = Client.objects.filter(email=request.user.email).first()
+        if client == None:
+            return redirect("/myapp/login")
+        
+        cart = Cart.objects.filter(client=client).first()
+    
+        if cart == None:
+            cart = Cart.objects.create(client=client, total_cost=0, promo_code=Discount.objects.first())
+        
+        cart.services.add(service)
+        cart.save()
+        
+        return redirect('/myapp/buy')
         
 
 def editservice(request:HttpRequest, id:int):
-    service =  Service.objects.get(id=id)
+    service = Service.objects.get(id=id)
     
     if request.method == 'POST':
         service.name = request.POST['name']
@@ -206,7 +255,9 @@ def salespage(request):
     
     if user_group.name == 'Doctor':
         template = 'sales.html'
-        doctor = Contact.objects.get(mail=request.user.email)    
+        doctor = Contact.objects.get(mail=request.user.email)   
+        if doctor == None:
+            return redirect("/myapp/login") 
         sales = Sale.objects.filter(client__doctor=doctor)
         sum = 0
         for sale in sales:
@@ -216,11 +267,17 @@ def salespage(request):
         
     else:
         template='sales_client.html'
-        client = Client.objects.get(email=request.user.email)
-        cart = Cart.objects.get(client=client)
-        services = cart.services.all()
+        client = Client.objects.filter(email=request.user.email).first()
+        if client == None:
+            return redirect("/myapp/login")
         
-        data={'cart':cart, 'services':services}
+        cart = Cart.objects.filter(client=client).first()
+        show = cart == None or cart.services == []
+        services = []
+        if cart != None:
+            services = cart.services.all()
+        
+        data={'cart': cart, 'services':services, 'show':show}
 
      
     return render(request, template, data)
@@ -228,37 +285,79 @@ def salespage(request):
 
 @login_required
 def buypage(request):
-    services = Service.objects.all()
-    codes = Discount.objects.all()
-    return render(request,'buy.html', 
-{'services': services, 'codes': codes})
+    client = Client.objects.filter(email=request.user.email).first()
+    if client == None:
+        return redirect("/myapp/login")
+
+    cart = Cart.objects.filter(client=client).first()
+    no_cart = cart == None
+    services = Service.objects.all()  
+    codes = Discount.objects.all()  
+
+    selected_services = cart.services.values_list('name', flat=True) if not no_cart else []
+        
+    data = {
+        'services': services,
+        'codes': codes,
+        'selected_services': selected_services,  
+    }
+    return render(request,'buy.html', data)
+    
+@login_required
+def purchase_action(request:HttpRequest):    
+    return redirect('/myapp/webpay')
+    
+@login_required
+def webpay(request:HttpRequest):    
+    return render(request, 'webpay.html')
+
+@login_required
+def purchased(request:HttpRequest):
+    client = Client.objects.get(email=request.user.email)
+    cart = Cart.objects.get(client=client)
+    
+    cart.delete()
+    return render(request, 'purchased.html')
     
 @login_required   
 def buy_action(request:HttpRequest):
     client = Client.objects.get(email=request.user.email)
     service_names = request.POST.getlist('service_name')
     
-    print(service_names)
-    
-    services = Service.objects.filter(name__in=service_names)
-    
-    service_dict = {service.name: service for service in services}
-
-    total_cost = 0
-    for service_name in service_names:
-        service = service_dict[service_name]  
-        
-        Sale.objects.create(client=client, service=service, date=datetime.now())
-        
-        total_cost += float(service.price)
-    
     code = request.POST['promo_code']
     discount = Discount.objects.get(code=code)
-
-    total_cost *= (100-discount.value)/100
     
-    cart = Cart.objects.create(client=client, promo_code=discount, total_cost=total_cost)
-    cart.services.set(services)
+    print(discount.code)
+
+    cart = Cart.objects.filter(client=client).first()
+    
+    if cart == None:
+        cart = Cart.objects.create(client=client, total_cost=0, promo_code=discount)
+
+    services = Service.objects.filter(name__in=service_names)
+
+    service_dict = {service.name: service for service in services}
+
+    if service_names == []:  
+        cart.delete()
+        return redirect('/myapp/sales')    
+    
+    total_cost = Decimal(0)
+    for service in services:              
+        total_cost += Decimal(service.price)   
+        
+        if Sale.objects.filter(client=client, service=service).exists():
+            continue
+               
+        Sale.objects.create(client=client, service=service, date=datetime.now())
+
+    dicount_percent = Decimal(1 - discount.value * 0.01)
+    
+    total_cost *= dicount_percent
+
+
+    cart.total_cost = total_cost  
+    cart.services.set(services) 
     cart.save()
     
     return redirect('/myapp/sales')
@@ -303,3 +402,4 @@ def statspage(request:HttpRequest):
     }
     
     return render(request, 'stats.html', data)
+

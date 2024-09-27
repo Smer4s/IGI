@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+    <h3>Название услуги: {{service.name}}</h3>
+    <h3>Стоимость: {{service.price}}</h3>
+
+    <form method="post" action="/myapp/services/add-to-cart/">
+        {% csrf_token %}
+
+        <input type="text" name="service-id" value="{{service.id}}" readonly>
+
+        <button type="submit">
+            <h2>Добавить в корзину
+                <img width="20" height="20"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2d9TvOnmJwypIZmYkcSNyV_f508Z_Kxp-NQ&s">
+            </h2>
+        </button>
+    </form>
+</div>
+
+{% endblock %}

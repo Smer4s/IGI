@@ -1,9 +1,89 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block content %}
 <div>
-    <h1>Медицинский косметологический центр "{{name}}"</h1>
-    <h2>{{about}}</h2>
+    <h1>Медицинский косметологический центр "{{ about.companyname }}"</h1>
+    <h2>{{ about.about_text }}</h2>
+
+    <div>
+        <h3>Смотрите наше видео:</h3>
+        <iframe width="500" height="300" src="{{about.video_url}}"></iframe>
+    </div>
+
+    <div>
+
+    </div>
+    <div>
+        <h3>Наш логотип:</h3>
+        <img src="{{ about.logo }}" width="200" height="200" alt="Логотип {{ about.companyname }}">
+    </div>
+
+    <div>
+        <h3>История компании:</h3>
+        <p>{{ about.history }}</p>
+    </div>
+
+    <div>
+        <h3>Реквизиты:</h3>
+        <p>{{ about.details }}</p>
+    </div>
+
+    <div>
+        <h3>Сертификат:</h3>
+
+        <table border="10">
+            <tr>
+                <td>
+                    <h1>ЕДИНЫЙ РЕЕСТР КОСМЕТОЛОГОВ</h1>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h2>СВИДЕТЕЛЬСТВО</h2>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h3>О ВНЕСЕНИИ СВЕДЕНИЙ</h3>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <strong>{{ about.certificate.title }}</strong>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <em>(ИНН: {{about.certificate.inn}})</em>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b><u>Реестровый номер: {{about.certificate.registry_number}}</u></b>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <small>
+                        <i> e-mail {{about.certificate.email}} </i>
+                        <s> веб-сайт: {{about.certificate.website_url}}</s>
+                        <b> тел: {{about.certificate.phone}}</b>
+                        <p> адрес: {{about.certificate.address}}</p>
+                    </small>
+                </td>
+            </tr>
+
+            <tr>
+                <td><img src="{{about.certificate.print_url}}" width="200" height="200"></td>
+            </tr>
+
+        </table>
+    </div>
+
 </div>
 
 {% endblock %}

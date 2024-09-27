@@ -3,9 +3,11 @@ from . import views
 
 urlpatterns = [
     path('', views.mainpage),
+    path('all/', views.allpage),
     path('about/', views.aboutpage),
     path('faq/', views.faqpage),
     path('news/', views.newspage),
+    path('news/<int:id>/', views.newpage),
     path('contacts/', views.contactpage),
     path('confidential/',views.confidentialpage),
     path('employees/', views.employeepage),
@@ -21,12 +23,17 @@ urlpatterns = [
     path('account/addcontact/', views.addcontact),
     path('schedule/', views.schedulepage),
     path('services/', views.ServiceView.as_view()),
+    path('services/view/<int:id>/', views.view_service),
     path('services/create/', views.addservice),
     path('services/edit/<int:id>/', views.editservice),
     path('services/delete/<int:id>/', views.deleteservice),
     path('visits/', views.visitspage),
     path('sales/', views.salespage),
+    path('sales/purchase',views.purchase_action),
     path('buy/', views.buypage),
     path('buy/services/', views.buy_action),
-    path('statistics/', views.statspage)
+    path('statistics/', views.statspage),
+    path('webpay/', views.webpay),
+    path('purchased/', views.purchased),
+    path('services/add-to-cart/', views.add_to_cart),
 ]

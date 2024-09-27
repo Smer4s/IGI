@@ -4,19 +4,20 @@
 
 <div>
     <h1>Ответы на часто задаваемые вопросы: </h1>
-    <ul>
+    
         {% for question in questions %}
-        <li>
-            <h2>
-                {{question.question_text}} <br />
-            </h2>
-            <h3>
-                {{question.answer_text }}<br />
-                {{question.answer_date}} <br />
-            </h3>
-        </li>
-        {% endfor %}
-    </ul>
-</body>
+        
+            
+            <details>
+                <summary>{{question.question_text}} </summary>
+                {{question.answer_text }}
+            </details>
+            
 
-{% endblock %}
+            <small> {{question.answer_date}}</small>
+        
+        {% endfor %}
+    
+    </body>
+
+    {% endblock %}

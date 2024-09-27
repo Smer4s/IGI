@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block content %}
 <div>
     <h1>Главная</h1>
@@ -14,11 +16,70 @@
 
     {% endif %}
 
+    <h1>Компания <em>Cosmetal</em></h1>
+
+    <img src="/static/company/logo.png" alt="logo">
+
     <br />
-    <br /> 
+
+    <h2>Наши слоганы:</h2>
+
+    {% for ad in ads %}
+
+    <img src="{% static ad %}" width="500" height="400" alt="{{ad}}">
     <br />
-    {{article.title}}<br />
-    <img src={{article.image_url}} width="10%" height="10%" /> <br />
+
+    {% endfor %}
+
+    <br />
+    <br />
+    <br />
+
+    <h3>Наши услуги:</h3>
+
+    <table>
+        <tr>
+            <td>Название</td>
+            <td>Стоимость</td>
+        </tr>
+
+        {% for service in services %}
+        <tr>
+            <td> {{service.name}} </td>
+            <td> {{service.price}} </td>
+            <td> <a href="services/view/{{service.id}}">Просмотр</a></td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    <br />
+    <br />
+    <br />
+
+    <h2>Наши партнёры:</h2>
+
+    {% for partner in partners %}
+
+    <h3>{{partner.name}}</h3>
+    <p>{{partner.description}}</p>
+    
+    <a href="{{partner.site_url}}" target="_blank">
+        <img src="{{partner.image_url}}" alt="{{partner.name}}.logo" width="150" height="150">
+    </a>
+
+    {% endfor %}
+
+    <br />
+    <br />
+    <br />
+
+    <h2>Актуальная статья:</h2>
+    <h3><i>{{article.title}}</i></h3>
+    <article>{{article.text}}</article>
+    <img src={{article.image_url}} width="10%" height="10%" /> 
+    <br />
 </div>
 
 {% endblock %}

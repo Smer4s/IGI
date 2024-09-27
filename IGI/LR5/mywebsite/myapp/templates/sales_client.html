@@ -3,24 +3,41 @@
 {% block content %}
 
 <div>
+
+    {% if show == False %}
+
+    <h3>Ваша корзина пустая</h3>
+
+    {% else %}
+
     <table>
         <tr>
             <td>Название услуги</td>
             <td>Стоимость услуги</td>
+            <td>Количество</td>
         </tr>
 
         {% for service in services %}
         <tr>
             <td> {{service.name}} </td>
             <td> {{service.price}} </td>
+            <td> {{service.quantity}} </td>
         </tr>
 
         {% endfor %}
 
     </table>
     <br />
-    Промокод: {{cart.promo_code.code}} ({{cart.promo_code.value}}%) <br/>
+    Промокод: {{cart.promo_code.code}} ({{cart.promo_code.value}}%) <br />
     Итоговая сумма покупки: {{cart.total_cost}}
+
+    <br />
+    <form method="get" action="purchase">
+        {% csrf_token %}
+        <button type="submit">Оплатить</button>
+    </form>
+
+    {% endif %}
 </div>
 
 {% endblock %}

@@ -6,9 +6,11 @@
     <ul>
         {% for article in news %}
         <li>
-            {{article.title}}<br/>
-            <img src={{article.image_url}} width="10%" height="10%"/> <br/>
-            {{article.text}}
+            <h2> {{article.title}}</h2>
+            <img src={{article.image_url}} width="10%" height="10%" /> <br />
+            <i> {{article.text}}</i>
+            <br />
+            <a href="/myapp/news/{{article.id}}">Читать далее</a>
         </li>
         {% endfor %}
     </ul>

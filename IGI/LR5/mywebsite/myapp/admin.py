@@ -4,7 +4,7 @@ from django.contrib.auth.models import Permission
 from .models import (Category, About,
 Question,Article, Contact, Cart,
 Employee, Discount, Review, Client, Sale, 
-Service, Schedule, Room, PlannedVisit)
+Service, Schedule, Room, PlannedVisit, Partner, Certificate)
 
 # Register your models here.
 admin.site.register(
@@ -12,4 +12,4 @@ admin.site.register(
     Article, Contact, Employee, 
     Discount, Review, Client,
     Sale, Schedule, Service, Room,
-    Cart, PlannedVisit, Permission])
+    Cart, PlannedVisit, Permission, Partner, Certificate])

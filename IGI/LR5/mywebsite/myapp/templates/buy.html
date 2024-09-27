@@ -2,20 +2,25 @@
 
 {% block content %}
 <div>
-    Список услуг:
+    <h3><i>С</i>писок услуг:</h3>
 
     <form method="post" action="services/">
         {% csrf_token %}
 
         {% for service in services %}
-        <input type="checkbox" name="service_name" value="{{service.name}}"> {{service.name}} {{service.price}} <br />
+        <p>
+            <input type="checkbox" name="service_name" value="{{service.name}}" 
+            {% if service.name in selected_services %}checked{% endif %}>
+
+           <strong> {{service.name}}</strong>  <em>{{service.price}}  </em>
+        </p>
         {% endfor %}
-        <br/>
+        <br />
         Выберите промокод:
         <select name="promo_code">
             {% for code in codes %}
             {% if code.is_active %}
-                <option value={{code.code}}>{{code.code}} {{code.value}}%</option>
+            <option value="{{code.code}}">{{code.code}} {{code.value}}%</option>
             {% endif %}
             {% endfor %}
         </select>

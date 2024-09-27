@@ -1,0 +1,22 @@
+{% extends 'base_client.html' %}
+
+{% block content %}
+
+<div>
+    <h2>Оплата картой через сервис WebPay</h2>
+
+    <h3>Введите данные карты:</h3>
+    <form method="post" action="/myapp/purchased/">
+        {% csrf_token %}
+        <p><input type="text" size="30" required placeholder="Введите имя держателя" id="name"> </p>
+        <p><input type="text" size="16" required maxlength="16" placeholder="Введите 16-значный номер карты" id="code"></p>
+        <p><input type="password" size="3" required maxlength="3" placeholder="Введите CVV код" id="cvv"></p>
+
+        <br/>
+        <input type="submit" value="Оплатить">
+        <input type="reset" value="Стереть данные">
+    </form>
+
+</div>
+
+{% endblock %}

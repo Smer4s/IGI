@@ -19,6 +19,14 @@ class Discount(models.Model):
             MaxValueValidator(100)
         ])
     is_active = models.BooleanField()
+    
+class Partner(models.Model):
+    name = models.CharField(max_length=30)
+    description = models.CharField(max_length=50)
+    site_url = models.URLField(max_length=200,
+                               default="https://doctorface.by/")
+    image_url = models.URLField(max_length=200,
+                                default="https://doctorface.by/upload/CAllcorp3Medc/303/73auzuayw1hh7elpf74bmd9nh8lu14jo.png")
 
 class Employee(models.Model):
     name = models.CharField(max_length=30)
@@ -47,9 +55,27 @@ class Question(models.Model):
     answer_text = models.CharField(max_length=100)
     answer_date = models.DateField()
 
+class Certificate(models.Model):
+    title = models.CharField(max_length=100)
+    inn = models.CharField(max_length=12) 
+    registry_number = models.CharField(max_length=4)
+    email = models.EmailField(max_length=100) 
+    address = models.TextField(blank=True) 
+    phone = models.TextField(blank=True)
+    website_url = models.URLField(max_length=200, null=True)
+    print_url = models.URLField(max_length=200, null=True)
+
+    def __str__(self):
+        return self.title
+
 class About(models.Model):
     companyname = models.CharField(max_length=30)
-    about_text=models.CharField(max_length=300)
+    about_text = models.CharField(max_length=300)
+    video_url = models.URLField(max_length=200, blank=True)  
+    logo = models.URLField(max_length=200, blank=True)  
+    history = models.TextField(blank=True)  
+    details = models.TextField(blank=True)  
+    certificate = models.OneToOneField(Certificate, on_delete=models.CASCADE, blank=True, null=True) 
     
 class Category(models.Model):
     name = models.CharField(max_length=50)
@@ -71,7 +97,7 @@ class Service(models.Model):
     clients = models.ManyToManyField(Client, through='Sale')
 
 class Cart(models.Model):
-    client = models.ForeignKey(Client, on_delete=models.CASCADE)
+    client = models.ForeignKey(Client, on_delete=models.CASCADE, null=True)
     services = models.ManyToManyField(Service)
     total_cost = models.DecimalField(max_digits=10, decimal_places=2)
     promo_code = models.ForeignKey(Discount, on_delete=models.CASCADE)
