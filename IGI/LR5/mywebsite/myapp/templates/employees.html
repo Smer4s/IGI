@@ -1,15 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<body>
+<div class="vacancies">
     <h1>Открытые Вакансии:</h1>
     <ul>
         {% for employee in employees %}
-        <li>
-            {{employee.name}}<br/>
-            {{employee.description}}
+        <li class="vacancy-item">
+            <h2>{{employee.name}}</h2>
+            <p>{{employee.description}}</p>
         </li>
         {% endfor %}
     </ul>
-</body>
+</div>
 {% endblock %}

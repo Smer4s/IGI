@@ -1,16 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div>
-    <h1>Последние Новости:</h1>
+<div class="news">
     <ul>
         {% for article in news %}
         <li>
-            <h2> {{article.title}}</h2>
-            <img src={{article.image_url}} width="10%" height="10%" /> <br />
-            <i> {{article.text}}</i>
-            <br />
-            <a href="/myapp/news/{{article.id}}">Читать далее</a>
+            <img src="{{ article.image_url }}" />
+            <h2>{{ article.title }}</h2>
+            <i>{{ article.text }}</i>
+            <a href="/myapp/news/{{ article.id }}">Читать далее</a>
         </li>
         {% endfor %}
     </ul>

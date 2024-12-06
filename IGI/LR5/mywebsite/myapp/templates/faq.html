@@ -2,22 +2,21 @@
 
 {% block content %}
 
-<div>
+<div class="faq">
     <h1>Ответы на часто задаваемые вопросы: </h1>
-    
-        {% for question in questions %}
-        
-            
-            <details>
-                <summary>{{question.question_text}} </summary>
-                {{question.answer_text }}
-            </details>
-            
+    {% for question in questions %}
 
-            <small> {{question.answer_date}}</small>
-        
-        {% endfor %}
-    
-    </body>
 
-    {% endblock %}
+    <details>
+        <summary>{{question.question_text}}
+            <small>
+                {{question.answer_date}}
+            </small>
+        </summary>
+        {{question.answer_text }}
+    </details>
+
+    {% endfor %}
+</div>
+
+{% endblock %}

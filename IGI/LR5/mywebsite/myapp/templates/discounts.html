@@ -1,20 +1,20 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div>
+<div class="coupons">
     <h1>Скидки и купоны:</h1>
     <ul>
         {% for discount in discounts %}
-        <li>
-            Код: {{discount.code}} <br/>
-            Процент скидки: {{discount.value}}% <br/>
-
             {% if discount.is_active %}
-            Активен
+        <li class="coupon-item active">
             {% else %}
-            В архиве
+        <li class="coupon-item archived">
             {% endif %}
+
+            Код: {{discount.code}}
+            Процент скидки: {{discount.value}}%
         </li>
+
         {% endfor %}
     </ul>
 </div>

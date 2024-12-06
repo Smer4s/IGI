@@ -1,11 +1,13 @@
 {% extends 'base_doctor.html' %}
 
 {% block content %}
-<div>
+<div class="schedule reviews">
     <table>
+        <caption>Процедуры</caption>
         <tr>
             <td>Название процедуры</td>
             <td>Стоимость</td>
+            <td>Действие</td>
         </tr>
 
         {% for service in services %}

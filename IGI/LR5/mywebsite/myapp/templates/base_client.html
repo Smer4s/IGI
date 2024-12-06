@@ -4,18 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
     <title>Личный кабинет врача</title>
 </head>
-<header>
-    <a href="/myapp/">На главную</a>
-    <form method="post" action="/myapp/account/logout/">
-        {% csrf_token %}
-        <button type="submit">Выйти</button>
-    </form>
-    <br />
-    <a href="/myapp/account">Личный кабинет</a> | 
-    <a href="/myapp/buy">Купить услугу</a> | 
-    <a href="/myapp/sales">Корзина</a>
+<header class="navbar">
+    <ul>
+        <li><a href="/myapp/">На главную</a></li>
+        <li>
+            <form method="post" action="/myapp/account/logout/">
+                {% csrf_token %}
+                <button type="submit" style="
+                 background-color: #007bff;
+                color: white;
+                border: none;
+                cursor: pointer;"
+                >Выйти</button>
+            </form>
+        </li>
+        <li>
+            <a href="/myapp/account">Личный кабинет</a>
+        </li>
+        <li>
+            <a href="/myapp/buy">Купить услугу</a>
+        </li>
+        <li>
+            <a href="/myapp/sales">Корзина</a>
+        </li>
+    </ul>
+    </ul>
 </header>
 
 

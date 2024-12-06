@@ -44,7 +44,7 @@ class Contact(models.Model):
 
 class Article(models.Model):
     title = models.CharField(max_length=30)
-    text = models.CharField(max_length=100)
+    text = models.CharField(max_length=1000)
     image_url = models.CharField(
         max_length=500,
         default='https://smaller-pictures.appspot.com/images/dreamstime_xxl_65780868_small.jpg'

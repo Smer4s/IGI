@@ -3,83 +3,138 @@
 {% load static %}
 
 {% block content %}
-<div>
-    <h1>Главная</h1>
+<div class="index">
 
-    {% if user.is_authenticated %}
+    <img src="/static/molecules.png" class="molecule molecule1"> 
+    <img src="/static/molecules.png" class="molecule molecule2">
 
-    <a href="account/">Личный кабинет</a>
+    <div class="index-header">
+        <h1>Компания
+            <em>Cosmetal</em>
+        </h1>
 
-    {% else %}
+        <img src="/static/company/logo.png" alt="logo">
+    </div>
 
-    <a href="login/">Войти в личный кабинет</a>
+    <div class="index-pics index-header">
+        <h1 id="title">Наши <em>Слоганы</em></h1>
+        <div class="slider" id="slider">
+            <div class="slides">
+                <div class="slide"> <img src="/static/company/ads/ad1.jpg" alt="Slide 1">
+                    <div class="caption">Время быть красивой</div>
+                </div>
+                <div class="slide"> <img src="/static/company/ads/ad2.png" alt="Slide 2">
+                    <div class="caption">Косметология</div>
+                </div>
+                <div class="slide"> <img src="/static/company/ads/ad3.avif" alt="Slide 3">
+                    <div class="caption">Натуральная косметика</div>
+                </div>
+            </div>
+            <div class="nav prev">&#10094;</div>
+            <div class="nav next">&#10095;</div>
+            <div class="slide-pagination">
+                <span data-index="0" class="active"></span>
+                <span data-index="1"></span>
+                <span data-index="2"></span>
+            </div>
+        </div>
+        <div>
+            {% if user.is_authenticated %}
+            <label for="delay">Интервал переключения (сек):</label>
+            <input type="number" id="delay" name="delay" value="5">
 
-    {% endif %}
+            {% endif %}
+            <div>
+                <input type="checkbox" id="loop" name="loop" checked>
+                <label for="loop">Loop</label>
+            </div>
+            <div>
+                <input type="checkbox" id="navs" name="navs" checked>
+                <label for="navs">Navs</label>
+            </div>
+            <div>
+                <input type="checkbox" id="pags" name="pags" checked>
+                <label for="pags">Pags</label>
+            </div>
+            <div>
+                <input type="checkbox" id="auto" name="auto" checked>
+                <label for="auto">Auto</label>
+            </div>
+            <button id="updateSettings">Обновить</button>
+        </div>
+    </div>
 
-    <h1>Компания <em>Cosmetal</em></h1>
+    <h1>Наши <em>Услуги</em></h1>
+    <div class="services-grid" id="services-grid">
 
-    <img src="/static/company/logo.png" alt="logo">
+    </div>
 
-    <br />
+    <div class="pagination" id="pagination">
+        <button id="prevPage">Назад</button>
+        <span id="pageInfo"></span>
+        <button id="nextPage">Вперед</button>
+    </div>
 
-    <h2>Наши слоганы:</h2>
+    <div class="index-header">
+        <h2>Наши <em>Партнёры</em></h2>
+        <div class="partner-cards">
+            {% for partner in partners %}
+            <div class="partner-card">
 
-    {% for ad in ads %}
+                <a href="{{partner.site_url}}" target="_blank">
+                    <img src="{{partner.image_url}}" alt="{{partner.name}}.logo" height="150" width="150">
+                </a>
 
-    <img src="{% static ad %}" width="500" height="400" alt="{{ad}}">
-    <br />
+                <h3>{{partner.name}}</h3>
+            </div>
+            {% endfor %}
+        </div>
 
-    {% endfor %}
+    </div>
 
-    <br />
-    <br />
-    <br />
 
-    <h3>Наши услуги:</h3>
+    <div class="last-article">
+        <h2>Актуальная статья:</h2>
+        <h3><i>{{article.title}}</i></h3>
+        <article>{{article.text}}</article>
+        <img src="{{article.image_url}}" alt="Изображение статьи" />
+    </div>
 
-    <table>
-        <tr>
-            <td>Название</td>
-            <td>Стоимость</td>
-        </tr>
+    <div class="animation">
+        <svg class="face" viewBox="0 0 200 200">
+            <!-- Голова -->
+            <circle cx="100" cy="100" r="80" fill="none" stroke="#cccccc" stroke-width="3" />
+            <!-- Глаза -->
+            <circle class="eye" cx="75" cy="85" r="5" fill="none" />
+            <circle class="eye" cx="125" cy="85" r="5" fill="none" />
+            <!-- Нос -->
+            <path class="nose" d="M 100,100 L 90,120 L 110,120 Z" fill="none" />
+            <!-- Губы -->
+            <path class="mouth" d="M 75,130 Q 100,140 125,130" fill="none" />
+            <!-- Щеки -->
+            <circle class="cheek" cx="155" cy="100" r="10" fill="none" />
+            <circle class="cheek" cx="45" cy="100" r="10" fill="none" />
+            <!-- Кисточка -->
+            <g class="brush">
+                <rect x="10" y="10" width="5" height="20" fill="#b22222" />
+                <circle cx="12.5" cy="10" r="5" fill="#ffcc00" />
+            </g>
+        </svg>
+        <div class="index-header company-name">
+            <h1>Компания
+                <em>Cosmetal</em>
+            </h1>
+        </div>
+    </div>
 
-        {% for service in services %}
-        <tr>
-            <td> {{service.name}} </td>
-            <td> {{service.price}} </td>
-            <td> <a href="services/view/{{service.id}}">Просмотр</a></td>
-        </tr>
+    <div class="loader">
+        <div class="line line1"></div>
+        <div class="line line2"></div>
+        <div class="line line3"></div>
+        <div class="line line4"></div>
+        <div class="line line5"></div>
+    </div>
 
-        {% endfor %}
-
-    </table>
-
-    <br />
-    <br />
-    <br />
-
-    <h2>Наши партнёры:</h2>
-
-    {% for partner in partners %}
-
-    <h3>{{partner.name}}</h3>
-    <p>{{partner.description}}</p>
-    
-    <a href="{{partner.site_url}}" target="_blank">
-        <img src="{{partner.image_url}}" alt="{{partner.name}}.logo" width="150" height="150">
-    </a>
-
-    {% endfor %}
-
-    <br />
-    <br />
-    <br />
-
-    <h2>Актуальная статья:</h2>
-    <h3><i>{{article.title}}</i></h3>
-    <article>{{article.text}}</article>
-    <img src={{article.image_url}} width="10%" height="10%" /> 
-    <br />
 </div>
 
 {% endblock %}

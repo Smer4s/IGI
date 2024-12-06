@@ -3,9 +3,9 @@
 {% load static %}
 
 {% block content %}
-<div>
-    <h1>Медицинский косметологический центр "{{ about.companyname }}"</h1>
-    <h2>{{ about.about_text }}</h2>
+<div class="about">
+    <h1>Медицинский косметологический центр <em>"{{ about.companyname }}"</em></h1>
+    <p>{{ about.about_text }}</p>
 
     <div>
         <h3>Смотрите наше видео:</h3>
@@ -15,9 +15,9 @@
     <div>
 
     </div>
-    <div>
+    <div class="logo">
         <h3>Наш логотип:</h3>
-        <img src="{{ about.logo }}" width="200" height="200" alt="Логотип {{ about.companyname }}">
+        <img src="{{ about.logo }}" alt="Логотип {{ about.companyname }}">
     </div>
 
     <div>
@@ -25,15 +25,8 @@
         <p>{{ about.history }}</p>
     </div>
 
-    <div>
-        <h3>Реквизиты:</h3>
-        <p>{{ about.details }}</p>
-    </div>
-
-    <div>
-        <h3>Сертификат:</h3>
-
-        <table border="10">
+    <div class="certificate">
+        <table>
             <tr>
                 <td>
                     <h1>ЕДИНЫЙ РЕЕСТР КОСМЕТОЛОГОВ</h1>
@@ -83,6 +76,10 @@
 
         </table>
     </div>
+
+
+    <h3>Реквизиты:</h3>
+    <p>{{ about.details }}</p>
 
 </div>
 

@@ -1,7 +1,7 @@
 {% extends 'base_client.html' %}
 
 {% block content %}
-<div>
+<div class="buy reviews">
     <h3><i>С</i>писок услуг:</h3>
 
     <form method="post" action="services/">
@@ -9,10 +9,16 @@
 
         {% for service in services %}
         <p>
-            <input type="checkbox" name="service_name" value="{{service.name}}" 
-            {% if service.name in selected_services %}checked{% endif %}>
+            {% if service.name in selected_services %}
+            <input type="checkbox" name="service_name" value="{{service.name}}" checked>
 
-           <strong> {{service.name}}</strong>  <em>{{service.price}}  </em>
+            {% else %}
+
+            <input type="checkbox" name="service_name" value="{{service.name}}">
+
+            {% endif %}
+
+            <strong> {{service.name}}</strong> <em>{{service.price}} </em>
         </p>
         {% endfor %}
         <br />

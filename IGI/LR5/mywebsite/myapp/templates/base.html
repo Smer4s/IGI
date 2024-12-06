@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,25 +9,46 @@
     <meta name="title" content="Cosmetal">
     <meta name="description" content="Косметологическая клиника">
     <link rel="shortcut icon" href="/static/icon.png">
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="{% static 'app.js' %}"></script>
+    <script src="{% static 'table.js' %}"></script>
     <title>Cosmetal</title>
 </head>
 
-<header>
-    <a href="/myapp/">Главная</a>
-    <a href="/myapp/about/">О Компании</a>
-    <a href="/myapp/news/">Новости</a>
-    <a href="/myapp/faq/">F.A.Q.</a>
-    <a href="/myapp/contacts/">Контакты</a>
-    <a href="/myapp/confidential/">Политика конфиденциальности</a>
-    <a href="/myapp/employees/">Вакансии</a>
-    <a href="/myapp/reviews/">Отзывы</a>
-    <a href="/myapp/discounts/">Скидки</a>
+<header class="navbar">
+    <ul>
+        {% if user.is_authenticated %}
 
-    {% if user.is_authenticated %}
+        <li><a href="/myapp/account/">Личный кабинет</a></li>
 
-    <a href="/myapp/statistics/">Посмотреть статистические данные</a>
-    
-    {% endif %}
+        {% else %}
+
+        <li><a href="/myapp/login/">Войти в личный кабинет</a></li>
+
+        {% endif %}
+
+        <li><a href="/myapp/">Главная</a></li>
+        <li><a href="/myapp/about/">О Компании</a></li>
+        <li><a href="/myapp/news/">Новости</a></li>
+        <li><a href="/myapp/faq/">F.A.Q.</a></li>
+        <li><a href="/myapp/contacts/">Контакты</a></li>
+        <li><a href="/myapp/confidential/">Политика конфиденциальности</a></li>
+        <li><a href="/myapp/employees/">Вакансии</a></li>
+        <li><a href="/myapp/reviews/">Отзывы</a></li>
+        <li><a href="/myapp/discounts/">Скидки</a></li>
+
+        {% if user.is_authenticated %}
+
+        <li><a href="/myapp/statistics/">Посмотреть статистические данные</a></li>
+
+        {% endif %}
+    </ul>
+
+    <div id="location" hidden></div>
+    <div id="battery" hidden></div>
+    <div id="countdown" hidden></div>
+    <div id="animationCircle" hidden style="transform: translateX(10%)">animation</div>
+
 </header>
 
 <body>

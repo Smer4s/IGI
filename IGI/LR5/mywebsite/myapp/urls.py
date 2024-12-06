@@ -36,4 +36,6 @@ urlpatterns = [
     path('webpay/', views.webpay),
     path('purchased/', views.purchased),
     path('services/add-to-cart/', views.add_to_cart),
+    path('playground/', views.playground),
+    path('api/contacts/', views.contacts_json)
 ]

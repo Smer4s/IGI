@@ -10,7 +10,7 @@ from django.shortcuts import render, redirect
 from django.views import generic
 from django.contrib.auth.models import User, Group
 from django.contrib.auth.decorators import login_required,permission_required
-from django.http import HttpRequest
+from django.http import HttpRequest, JsonResponse
 from datetime import datetime
 from django.contrib import messages
 from django.contrib.auth import authenticate, login,logout
@@ -25,6 +25,9 @@ Partner)
 # Create your views here.
 def allpage(request):
     return render(request, 'all_tags.html')
+
+def playground(request):
+    return render(request, 'playground.html')
 
 def mainpage(request):
     article = Article.objects.first()
@@ -68,6 +71,20 @@ def contactpage(request):
     contacts = Contact.objects.all()
     data = {'contacts': contacts}
     return render(request, 'contacts.html', data)
+
+def contacts_json(request):
+    contacts = Contact.objects.all()
+    data = [
+        {
+            "name": contact.name,
+            "photo": contact.image_url,
+            "phone": contact.phone,
+            "email": contact.mail,
+        }
+        for contact in contacts
+    ]
+    return JsonResponse(data, safe=False)
+
 
 def confidentialpage(request):
     return render(request, 'confidential.html')

@@ -1,18 +1,68 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div>
-    <h1>Наши работники:</h1>
-    <ul>
-        {% for contact in contacts %}
-        <li>
-            {{contact.name}}<br/>
-            <img src={{contact.image_url}} width="10%" height="10%"/> <br/>
-            {{contact.phone}}<br/>
-            {{contact.mail}}<br/>
-            {{contact.work_type}}<br/>
-        </li>
-        {% endfor %}
-    </ul>
+<div class="contacts">
+
+    <h1>Контакты сотрудников</h1>
+
+    <div>
+        <button id="addButton">Добавить</button>
+    </div>
+
+    <div class="filter-container">
+        <input type="text" id="filterText" placeholder="Введите текст для фильтрации">
+        <button id="filterButton">Найти</button>
+    </div>
+
+    <table id="contactsTable">
+        <thead>
+            <tr>
+                <th data-column="name">ФИО</th>
+                <th>Фото</th>
+                <th data-column="phone">Телефон</th>
+                <th data-column="email">Почта</th>
+                <th>Выбор</th>
+            </tr>
+        </thead>
+        <tbody id="contactsBody">
+            <!-- Данные будут загружены через JavaScript -->
+        </tbody>
+    </table>
+
+    <div class="pagination" id="pagination"></div>
+
+    <div id="selectedContact"></div>
+
+
+
+    <div id="addForm" style="display: none;">
+        <h2>Добавить контакт</h2>
+        <form id="contactForm">
+            <label for="fullName">ФИО:</label>
+            <input type="text" id="fullName" name="fullName" required><br>
+            <label for="photo">Фото:</label>
+            <input type="text" id="photo" name="photo" required><br>
+            <label for="phone">Телефон:</label>
+            <input type="text" id="phone" name="phone" required><br>
+            <label for="email">Почта:</label>
+            <input type="email" id="email" name="email" required><br>
+            <button type="button" id="addContactButton">Добавить в таблицу</button>
+        </form>
+        <div id="validationMessage"></div>
+    </div>
+
+    <div>
+        <button id="premiateButton">Премировать</button>
+    </div>
+    <div id="premiationMessage"></div>
+
+    <div class="loader">
+        <div class="line line1"></div>
+        <div class="line line2"></div>
+        <div class="line line3"></div>
+        <div class="line line4"></div>
+        <div class="line line5"></div>
+    </div>
+
 </div>
 {% endblock %}

@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
     <title>Войти</title>
 </head>
 
-<body>
+<body class="login">
     <h1>Войти:</h1>
     <form method="post" action="loginuser/">
         {% csrf_token %}
@@ -19,11 +20,11 @@
     </form>
 
     {% if messages %}
-        <ul>
+    <ul>
         {% for message in messages %}
-            {{ message }}
+        {{ message }}
         {% endfor %}
-        </ul>
+    </ul>
     {% endif %}
 
     <p>Нету аккаунта?
